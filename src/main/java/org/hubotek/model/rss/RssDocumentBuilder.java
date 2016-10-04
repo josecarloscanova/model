@@ -6,7 +6,6 @@ import java.util.List;
 import javax.validation.constraints.NotNull;
 import javax.xml.xpath.XPathExpressionException;
 
-import org.apache.log4j.Logger;
 import org.hubotek.Builder;
 import org.hubotek.HubotekException;
 import org.hubotek.util.DOMElementExtratorUtil;
@@ -24,7 +23,6 @@ import org.w3c.dom.NodeList;
 public class RssDocumentBuilder extends DOMElementExtratorUtil<RssDocumentElementsEnum> implements Builder<RssDocument>{
 
 	private RssDocument rssDocument; 
-	private static final Logger logger = Logger.getLogger(RssDocumentBuilder.class);
 
 	public RssDocumentBuilder(){
 		prepare();
@@ -37,19 +35,17 @@ public class RssDocumentBuilder extends DOMElementExtratorUtil<RssDocumentElemen
 
 	public RssDocumentBuilder  withDocument (@NotNull Document document) throws HubotekException
 	{ 
-		if (logger.isDebugEnabled())
-			logger.debug("Starting document tranformation");
+		
 		withBody(document);
 		withImage(document);
 		withItems(document);
-		if (logger.isDebugEnabled())
-				logger.debug("Finished Object transformation");
+		
 		return this;
 	}
 
 	public RssDocument build()
 	{ 
-		logger.debug("returning document");
+		
 		return rssDocument;
 	}
 
