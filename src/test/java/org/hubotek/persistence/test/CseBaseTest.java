@@ -1,18 +1,16 @@
 package org.hubotek.persistence.test;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.metamodel.EntityType;
 import javax.persistence.metamodel.Metamodel;
-import javax.transaction.UserTransaction;
 
 import org.apache.log4j.Logger;
 import org.hubotek.ElementEnum;
 import org.hubotek.model.HubDocument;
 import org.hubotek.model.cse.GoogleSearchEngineBase;
+import org.hubotek.model.project.api.GoogleApiKey;
 import org.hubotek.model.rss.RssDocument;
 import org.hubotek.model.url.NamedUrl;
+import org.hubotek.test.BaseArquilianPersistenceTestClass;
 import org.hubotek.util.DOMElementExtratorUtil;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -23,8 +21,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nanotek.Base;
 
+import junit.framework.Assert;
+
 @RunWith(Arquillian.class)
-public class CseBaseTest {
+public class CseBaseTest extends BaseArquilianPersistenceTestClass {
 	
 	/*@Inject
 	Greeter greeter;
@@ -39,16 +39,12 @@ public class CseBaseTest {
 	
 	private static final Logger logger = Logger.getLogger(CseBaseTest.class);
 	
-	@PersistenceContext
-    EntityManager entityManager;
-    
-    @Inject
-    UserTransaction utx;
-
 	@Deployment
 	public static JavaArchive createDeployment() {
 		return ShrinkWrap.create(JavaArchive.class)
+				.addPackage(BaseArquilianPersistenceTestClass.class.getPackage())
 				.addPackage(Base.class.getPackage())
+				.addPackage(GoogleApiKey.class.getPackage())
 				.addPackage(DOMElementExtratorUtil.class.getPackage())
 				.addPackage(ElementEnum.class.getPackage())
 				.addPackage(HubDocument.class.getPackage())
@@ -64,6 +60,7 @@ public class CseBaseTest {
 	public void should_verify_entity_manager() {
 		Metamodel metaModel = entityManager.getMetamodel();
 		System.err.println("Logging Entity Names " +  metaModel.getEntities().size());
+		Assert.assertTrue(metaModel.getEntities().size() > 0);
 		metaModel.getEntities().stream().forEach(t -> print(t));
 	}
 
