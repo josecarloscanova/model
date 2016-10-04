@@ -9,6 +9,7 @@ import org.hubotek.model.HubDocument;
 import org.hubotek.model.cse.GoogleSearchEngineBase;
 import org.hubotek.model.project.api.GoogleApiKey;
 import org.hubotek.model.rss.RssDocument;
+import org.hubotek.model.url.BaseUrl;
 import org.hubotek.model.url.NamedUrl;
 import org.hubotek.test.BaseArquilianPersistenceTestClass;
 import org.hubotek.util.DOMElementExtratorUtil;
