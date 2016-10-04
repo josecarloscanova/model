@@ -8,8 +8,12 @@ import javax.persistence.metamodel.Metamodel;
 import javax.transaction.UserTransaction;
 
 import org.apache.log4j.Logger;
+import org.hubotek.ElementEnum;
+import org.hubotek.model.HubDocument;
 import org.hubotek.model.cse.GoogleSearchEngineBase;
+import org.hubotek.model.rss.RssDocument;
 import org.hubotek.model.url.NamedUrl;
+import org.hubotek.util.DOMElementExtratorUtil;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -45,6 +49,10 @@ public class CseBaseTest {
 	public static JavaArchive createDeployment() {
 		return ShrinkWrap.create(JavaArchive.class)
 				.addPackage(Base.class.getPackage())
+				.addPackage(DOMElementExtratorUtil.class.getPackage())
+				.addPackage(ElementEnum.class.getPackage())
+				.addPackage(HubDocument.class.getPackage())
+				.addPackage(RssDocument.class.getPackage())
 				.addPackage(NamedUrl.class.getPackage())
 				.addPackage(GoogleSearchEngineBase.class.getPackage())
 				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
