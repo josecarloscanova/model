@@ -26,17 +26,6 @@ import junit.framework.Assert;
 @RunWith(Arquillian.class)
 public class CseBaseTest extends BasePersistenceTestClass {
 	
-	/*@Inject
-	Greeter greeter;
-
-	@Deployment
-	public static JavaArchive createDeployment() {
-		return ShrinkWrap.create(JavaArchive.class)
-				.addClass(Greeter.class)
-				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
-	}
-*/
-	
 	private static final Logger logger = Logger.getLogger(CseBaseTest.class);
 	
 	@Deployment
