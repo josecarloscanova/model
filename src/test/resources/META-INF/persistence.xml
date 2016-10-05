@@ -18,11 +18,12 @@
         <class>org.hubotek.model.rss.RssDocument</class>
         <class>org.hubotek.model.rss.RssImage</class>
         <class>org.hubotek.model.rss.RssItem</class>
+        <class>org.hubotek.model.google.news.NewsTopic</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>
 </persistence>
