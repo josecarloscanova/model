@@ -9,9 +9,8 @@ import org.hubotek.model.HubDocument;
 import org.hubotek.model.cse.GoogleSearchEngineBase;
 import org.hubotek.model.project.api.GoogleApiKey;
 import org.hubotek.model.rss.RssDocument;
-import org.hubotek.model.url.BaseUrl;
 import org.hubotek.model.url.NamedUrl;
-import org.hubotek.test.BaseArquilianPersistenceTestClass;
+import org.hubotek.test.BasePersistenceTestClass;
 import org.hubotek.util.DOMElementExtratorUtil;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -25,7 +24,7 @@ import org.nanotek.Base;
 import junit.framework.Assert;
 
 @RunWith(Arquillian.class)
-public class CseBaseTest extends BaseArquilianPersistenceTestClass {
+public class CseBaseTest extends BasePersistenceTestClass {
 	
 	/*@Inject
 	Greeter greeter;
@@ -43,7 +42,7 @@ public class CseBaseTest extends BaseArquilianPersistenceTestClass {
 	@Deployment
 	public static JavaArchive createDeployment() {
 		return ShrinkWrap.create(JavaArchive.class)
-				.addPackage(BaseArquilianPersistenceTestClass.class.getPackage())
+				.addPackage(BasePersistenceTestClass.class.getPackage())
 				.addPackage(Base.class.getPackage())
 				.addPackage(GoogleApiKey.class.getPackage())
 				.addPackage(DOMElementExtratorUtil.class.getPackage())

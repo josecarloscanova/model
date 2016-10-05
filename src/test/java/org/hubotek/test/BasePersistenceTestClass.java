@@ -5,14 +5,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
 
-import org.jboss.arquillian.junit.Arquillian;
-import org.junit.runner.RunWith;
+public class BasePersistenceTestClass extends BaseTestClass{
 
-@RunWith(Arquillian.class)
-public class BaseArquilianPersistenceTestClass extends BaseArquilianTestClass{
-
-	
-	
 	@PersistenceContext
     protected EntityManager entityManager;
     
