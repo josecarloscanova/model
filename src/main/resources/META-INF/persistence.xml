@@ -9,7 +9,7 @@
 		<jta-data-source>java:/hubotek</jta-data-source>
 		<class>org.hubotek.model.cse.CseBase</class>
 		<class>org.hubotek.model.cse.CseSite</class>
-		<class>org.hubotek.model.cse.GoogleSearchEngineBase</class>
+		<class>org.hubotek.model.cse.GoogleSearchEngine</class>
 		<class>org.hubotek.model.feed.FeedUrl</class>
 		<class>org.hubotek.model.google.news.NewsTopic</class>
 		<class>org.hubotek.model.project.api.ApiKey</class>

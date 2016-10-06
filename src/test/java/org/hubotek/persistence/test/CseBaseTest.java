@@ -11,7 +11,7 @@ import javax.transaction.SystemException;
 import org.apache.log4j.Logger;
 import org.hubotek.ElementEnum;
 import org.hubotek.model.HubDocument;
-import org.hubotek.model.cse.GoogleSearchEngineBase;
+import org.hubotek.model.cse.GoogleSearchEngine;
 import org.hubotek.model.google.GoogleBase;
 import org.hubotek.model.google.news.NewsTopic;
 import org.hubotek.model.project.api.GoogleApiKey;
@@ -46,7 +46,7 @@ public class CseBaseTest extends BasePersistenceTestClass {
 				.addPackage(HubDocument.class.getPackage())
 				.addPackage(RssDocument.class.getPackage())
 				.addPackage(NamedUrl.class.getPackage())
-				.addPackage(GoogleSearchEngineBase.class.getPackage())
+				.addPackage(GoogleSearchEngine.class.getPackage())
 				.addClass(GoogleBase.class)
 				.addPackage(NewsTopic.class.getPackage())
 				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")

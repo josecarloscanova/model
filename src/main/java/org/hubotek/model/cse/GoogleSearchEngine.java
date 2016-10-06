@@ -21,7 +21,7 @@ import org.hubotek.model.url.NamedUrl;
 @Entity
 @Table(name="gse_base")
 @SuppressWarnings("serial")
-public class GoogleSearchEngineBase extends CseBase{
+public class GoogleSearchEngine extends CseBase{
 
 	@Column(name="name" , length=50 , insertable=true , unique=true , updatable=false)
 	private String name;
@@ -35,7 +35,7 @@ public class GoogleSearchEngineBase extends CseBase{
 	@OneToMany
 	private List<CseSite> sites;
 
-	public GoogleSearchEngineBase(){}
+	public GoogleSearchEngine(){}
 	
 	public String getName() {
 		return name;
