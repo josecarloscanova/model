@@ -35,6 +35,7 @@ public class CseBaseTest extends BasePersistenceTestClass {
 	@Deployment
 	public static JavaArchive createDeployment() {
 		return ShrinkWrap.create(JavaArchive.class)
+				.addPackage(BasePersistenceTestClass.class.getPackage())
 				.addPackage(Base.class.getPackage())
 				.addPackage(GoogleApiKey.class.getPackage())
 				.addPackage(DOMElementExtratorUtil.class.getPackage())
