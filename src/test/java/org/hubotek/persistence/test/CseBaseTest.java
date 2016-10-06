@@ -1,5 +1,7 @@
 package org.hubotek.persistence.test;
 
+import java.util.List;
+
 import javax.persistence.metamodel.EntityType;
 import javax.persistence.metamodel.Metamodel;
 import javax.transaction.HeuristicMixedException;
@@ -13,8 +15,10 @@ import org.hubotek.model.HubDocument;
 import org.hubotek.model.cse.GoogleSearchEngine;
 import org.hubotek.model.google.GoogleBase;
 import org.hubotek.model.google.news.NewsTopic;
+import org.hubotek.model.lob.LobResultItem;
 import org.hubotek.model.project.api.GoogleApiKey;
 import org.hubotek.model.rss.RssDocument;
+import org.hubotek.model.search.GoogleSearchResult;
 import org.hubotek.model.url.NamedUrl;
 import org.hubotek.test.BasePersistenceTestClass;
 import org.hubotek.util.DOMElementExtratorUtil;
@@ -26,8 +30,6 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nanotek.Base;
-
-import junit.framework.Assert;
 
 @RunWith(Arquillian.class)
 public class CseBaseTest extends BasePersistenceTestClass {
@@ -46,6 +48,8 @@ public class CseBaseTest extends BasePersistenceTestClass {
 				.addPackage(GoogleSearchEngine.class.getPackage())
 				.addClass(GoogleBase.class)
 				.addPackage(NewsTopic.class.getPackage())
+				.addPackage(LobResultItem.class.getPackage())
+				.addPackage(GoogleSearchResult.class.getPackage())
 				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
 				.addAsResource("log4j.properties", "log4j.properties")
 				.addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml");
@@ -55,8 +59,30 @@ public class CseBaseTest extends BasePersistenceTestClass {
 	public void should_verify_entity_manager() {
 		Metamodel metaModel = entityManager.getMetamodel();
 		System.err.println("Logging Entity Names " +  metaModel.getEntities().size());
-		Assert.assertTrue(metaModel.getEntities().size() > 0);
+		assertTrue(metaModel.getEntities().size() > 0);
 		metaModel.getEntities().stream().forEach(t -> print(t));
+	}
+
+	@Test
+	public void test_database_identity_lob_operations() throws Exception
+	{ 
+		 String expected_value = "This is become a result item"; 
+		 
+		 utx.begin();  
+		 entityManager.joinTransaction();  
+		 LobResultItem item = new LobResultItem();
+		 item.setResult(expected_value);		 
+		 entityManager.merge(item);
+		 utx.commit(); 
+		 utx.begin();  
+		 entityManager.joinTransaction();  
+		 List<LobResultItem> ris = entityManager.createQuery("Select ri from LobResultItem ri" , LobResultItem.class).getResultList();
+		 ris.stream().forEach(ri -> compareResult(expected_value , ri.getResult()));
+		 utx.commit(); 
+	}
+	
+	private void compareResult(String expected_value, String result) {
+		 assertEquals(expected_value, result);
 	}
 
 	@Test

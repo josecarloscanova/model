@@ -12,8 +12,20 @@ import javax.persistence.Table;
 @SuppressWarnings("serial")
 public class LobResultItem extends LobBase{
 
+	public LobResultItem(){
+		super();
+	}
+	
 	@Lob @Basic(fetch=FetchType.LAZY)
-	@Column(name="REPORT")
+	@Column(name="result")
 	protected String result;
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
 	
 }
