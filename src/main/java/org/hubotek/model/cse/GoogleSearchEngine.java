@@ -23,16 +23,16 @@ import org.hubotek.model.url.NamedUrl;
 @SuppressWarnings("serial")
 public class GoogleSearchEngine extends CseBase{
 
-	@Column(name="name" , length=50 , insertable=true , unique=true , updatable=false)
+	@Column(name="name" , length=50 , insertable=true , unique=true , updatable=false , nullable=false)
 	private String name;
 	
-	@Column(name="description" , length=250 , insertable=true , updatable=true)
+	@Column(name="description" , length=250 , insertable=true , updatable=true , nullable=true)
 	private String description;
 	
 	@OneToOne(fetch=FetchType.EAGER)
 	private NamedUrl searchEngineUrl;
 	
-	@OneToMany
+	@OneToMany(fetch=FetchType.LAZY)
 	private List<CseSite> sites;
 
 	public GoogleSearchEngine(){}
