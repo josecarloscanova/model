@@ -8,7 +8,6 @@ import javax.transaction.NotSupportedException;
 import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
 
-import org.apache.log4j.Logger;
 import org.hubotek.ElementEnum;
 import org.hubotek.model.HubDocument;
 import org.hubotek.model.cse.GoogleSearchEngine;
@@ -33,12 +32,9 @@ import junit.framework.Assert;
 @RunWith(Arquillian.class)
 public class CseBaseTest extends BasePersistenceTestClass {
 	
-	private static final Logger logger = Logger.getLogger(CseBaseTest.class);
-	
 	@Deployment
 	public static JavaArchive createDeployment() {
 		return ShrinkWrap.create(JavaArchive.class)
-				.addPackage(BasePersistenceTestClass.class.getPackage())
 				.addPackage(Base.class.getPackage())
 				.addPackage(GoogleApiKey.class.getPackage())
 				.addPackage(DOMElementExtratorUtil.class.getPackage())
