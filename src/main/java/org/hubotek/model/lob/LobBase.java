@@ -1,16 +1,14 @@
-package org.hubotek.model.search;
+package org.hubotek.model.lob;
 
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 import org.nanotek.LongBase;
 
 @MappedSuperclass
 @SuppressWarnings("serial")
-public abstract class ResultBase implements LongBase{
-
-	@Id
-	protected Long id;
+public class LobBase implements LongBase{
+	
+	private Long id;
 
 	public Long getId() {
 		return id;
@@ -18,6 +16,6 @@ public abstract class ResultBase implements LongBase{
 
 	public void setId(Long id) {
 		this.id = id;
-	}
+	} 
 	
 }
