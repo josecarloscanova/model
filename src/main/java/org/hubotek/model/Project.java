@@ -1,6 +1,8 @@
 package org.hubotek.model;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
@@ -11,6 +13,7 @@ import org.nanotek.Base;
 public class Project implements Base<Long>{
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(name="name" , length=255 , insertable=true , updatable=true , nullable=false)

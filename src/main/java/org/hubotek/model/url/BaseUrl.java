@@ -1,10 +1,12 @@
 package org.hubotek.model.url;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-import org.nanotek.Base;
+import org.nanotek.LongBase;
 
 /**
  * Intend to store "url instances" or ined addresses. 
@@ -16,9 +18,10 @@ import org.nanotek.Base;
 
 @MappedSuperclass
 @SuppressWarnings("serial")
-public abstract class BaseUrl implements Base<Long>{
+public abstract class BaseUrl implements LongBase{
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	protected Long id;
 	
 	@Column(name="url",insertable=true,updatable=false,length=2000)

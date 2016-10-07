@@ -1,5 +1,7 @@
 package org.hubotek.model.google;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -13,6 +15,7 @@ import org.nanotek.LongBase;
 public abstract class GoogleBase implements LongBase{
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	protected Long id;
 
 	public Long getId() {

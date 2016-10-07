@@ -1,5 +1,7 @@
 package org.hubotek.model.search;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
@@ -10,6 +12,7 @@ import org.nanotek.LongBase;
 public class QueryBase implements LongBase{
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	protected Long id;
 
 	public Long getId() {

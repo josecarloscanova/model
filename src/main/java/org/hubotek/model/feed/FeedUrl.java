@@ -2,6 +2,8 @@ package org.hubotek.model.feed;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,6 +15,7 @@ import org.nanotek.LongBase;
 public class FeedUrl implements LongBase{
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(name="feed_url" , length=2000 , insertable=true , updatable=true , nullable=false)
