@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.hubotek.Builder;
 import org.hubotek.HubotekException;
-import org.hubotek.util.DOMElementExtratorUtil;
+import org.hubotek.google.xpath.DOMElementExtratorUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
