@@ -25,8 +25,10 @@ public class AtomEntry extends AtomBase{
 	@OneToOne
 	private AtomDocumentContent content;
 	
-	
+	@Column (name="updated" , length=30 , nullable=false)
 	private String updated;
+	
+	@Column (name="category" , length=255 , nullable=false)
 	private String category;
 	
 	public AtomEntry(){}
