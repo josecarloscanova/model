@@ -8,7 +8,7 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="lob_result_item")
+@Table(name="atom_document_content")
 @SuppressWarnings("serial")
 public class AtomDocumentContent extends LobBase{
 

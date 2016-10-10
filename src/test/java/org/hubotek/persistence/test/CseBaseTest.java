@@ -12,9 +12,12 @@ import javax.transaction.SystemException;
 
 import org.hubotek.ElementEnum;
 import org.hubotek.model.HubDocument;
+import org.hubotek.model.atom.AtomBase;
 import org.hubotek.model.cse.GoogleSearchEngine;
+import org.hubotek.model.feed.FeedUrl;
 import org.hubotek.model.google.GoogleBase;
 import org.hubotek.model.google.news.NewsTopic;
+import org.hubotek.model.lob.AtomDocumentContent;
 import org.hubotek.model.lob.LobResultItem;
 import org.hubotek.model.project.api.GoogleApiKey;
 import org.hubotek.model.rss.RssDocument;
@@ -37,6 +40,9 @@ public class CseBaseTest extends BasePersistenceTestClass {
 	@Deployment
 	public static JavaArchive createDeployment() {
 		return ShrinkWrap.create(JavaArchive.class)
+				.addPackage(FeedUrl.class.getPackage())
+				.addPackage(AtomDocumentContent.class.getPackage())
+				.addPackage(AtomBase.class.getPackage())
 				.addPackage(BasePersistenceTestClass.class.getPackage())
 				.addPackage(Base.class.getPackage())
 				.addPackage(GoogleApiKey.class.getPackage())

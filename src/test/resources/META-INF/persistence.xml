@@ -21,6 +21,7 @@
 		<class>org.hubotek.model.atom.AtomBody</class>
 		<class>org.hubotek.model.atom.AtomDocument</class>
 		<class>org.hubotek.model.atom.AtomEntry</class>
+		<class>org.hubotek.model.atom.Author</class>
 		<class>org.hubotek.model.rss.RssBase</class>
 		<class>org.hubotek.model.rss.RssBody</class>
 		<class>org.hubotek.model.rss.RssDocument</class>
@@ -36,7 +37,7 @@
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 		</properties>
 	</persistence-unit>
 </persistence>
