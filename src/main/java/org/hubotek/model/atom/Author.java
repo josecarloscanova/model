@@ -1,9 +1,18 @@
 package org.hubotek.model.atom;
 
-public class Author {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@SuppressWarnings("serial")
+@Entity
+@Table(name="author")
+public class Author extends AtomBase{
+	
+	@Column(name="name" , insertable=true , updatable=false , nullable=false, length=2500)
 	private String name; 
 	
+	@Column(name="email" , nullable=true , length=3500 )
 	private String email;
 	
 	public Author(){}
@@ -26,7 +35,5 @@ public class Author {
 	public void setEmail(String email) {
 		this.email = email;
 	} 
-	
-	
 	
 }

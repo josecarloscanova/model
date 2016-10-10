@@ -2,12 +2,22 @@ package org.hubotek.model.atom;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 import org.hubotek.model.HubDocument;
 
-public class AtomDocument implements HubDocument{
+@Entity
+@Table(name="atom_document")
+@SuppressWarnings("serial")
+public class AtomDocument extends AtomBase implements HubDocument{
 
+	@OneToOne
 	private AtomBody body;
 	
+	@OneToMany
 	private List<AtomEntry> entries;
 	
 	public AtomDocument(){}

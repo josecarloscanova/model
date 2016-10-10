@@ -1,22 +1,53 @@
 package org.hubotek.model.atom;
 
-public class AtomEntry {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-	private String id;
+import org.hubotek.model.feed.FeedUrl;
+import org.hubotek.model.lob.AtomDocumentContent;
+
+@SuppressWarnings("serial")
+@Entity
+@Table(name="atom_entry")
+public class AtomEntry extends AtomBase{
+
+	@Column(name="atom_entry_id" , nullable=false , length=255)
+	private String atomEntryId;
+	
+	@Column(name="title" , length=255 , insertable=true , updatable=false)
 	private String title;
-	private String link; 
-	private String content;
+	
+	@OneToOne
+	private FeedUrl link; 
+	
+	@OneToOne
+	private AtomDocumentContent content;
+	
+	
 	private String updated;
 	private String category;
 	
 	public AtomEntry(){}
 	
-	public AtomEntry(String id, String title, String link, String content, String updated , String category) {
+	
+	public AtomEntry(String id, String title, FeedUrl link, AtomDocumentContent content, String updated , String category) {
 		super();
-		this.id = id;
+		this.atomEntryId = id;
 		this.title = title;
 		this.link = link;
 		this.content = content;
+		this.updated = updated;
+		this.category = category;
+	}
+	
+	public AtomEntry(String id, String title, String link, String content, String updated , String category) {
+		super();
+		this.atomEntryId = id;
+		this.title = title;
+		this.link = new FeedUrl(link);
+		this.content = new AtomDocumentContent(content);
 		this.updated = updated;
 		this.category = category;
 	}
@@ -29,19 +60,19 @@ public class AtomEntry {
 		this.title = title;
 	}
 	
-	public String getLink() {
+	public FeedUrl getLink() {
 		return link;
 	}
 	
-	public void setLink(String link) {
+	public void setLink(FeedUrl link) {
 		this.link = link;
 	}
 	
-	public String getContent() {
+	public AtomDocumentContent getContent() {
 		return content;
 	}
 
-	public void setContent(String content) {
+	public void setContent(AtomDocumentContent content) {
 		this.content = content;
 	}
 
@@ -53,12 +84,12 @@ public class AtomEntry {
 		this.updated = updated;
 	}
 	
-	public String getId() {
-		return id;
+	public String getAtomEntryId() {
+		return atomEntryId;
 	}
 	
-	public void setId(String id) {
-		this.id = id;
+	public void setAtomEntyId(String id) {
+		this.atomEntryId = id;
 	} 
 
 	public String getCategory() {

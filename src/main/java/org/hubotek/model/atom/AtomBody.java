@@ -1,22 +1,46 @@
 package org.hubotek.model.atom;
 
-public class AtomBody {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+import org.hubotek.model.feed.FeedUrl;
+
+@SuppressWarnings("serial")
+@Entity
+@Table (name="atom_body")
+public class AtomBody extends AtomBase {
+
+	@Column(name="version" , length=10 , insertable=true , updatable=false , nullable=false)
 	private String version = "1.0";
-	private String id;
+
+	@Column(name="atom_id" , length=50 , insertable=true , updatable=false , nullable=false)
+	private String atomId;
+	
+	@Column(name="title" , length=255 , insertable=true , updatable=false , nullable=false)
 	private String title; 
-	private String link; 
+	
+	@OneToOne
+	private FeedUrl link; 
+	
+	@Column(name="rights" , length=255)
 	private String rights;
+	
+	@Column(name="logo" , length=255)
 	private String logo;
+	
+	@Column(name="updated" , length=20)
 	private String updated;
 	
+	@OneToOne
 	private Author author;
 	
 	public AtomBody(){}
 	
 	public AtomBody(String id, String title, String rights, String logo, String updated) {
 		super();
-		this.id = id;
+		this.atomId = id;
 		this.title = title;
 		this.rights = rights;
 		this.logo = logo;
@@ -31,12 +55,12 @@ public class AtomBody {
 		this.version = version;
 	}
 
-	public String getId() {
-		return id;
+	public String getAtomId() {
+		return atomId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setAtomId(String id) {
+		this.atomId = id;
 	}
 
 	public String getTitle() {
@@ -47,11 +71,11 @@ public class AtomBody {
 		this.title = title;
 	}
 
-	public String getLink() {
+	public FeedUrl getLink() {
 		return link;
 	}
 
-	public void setLink(String link) {
+	public void setLink(FeedUrl link) {
 		this.link = link;
 	}
 
