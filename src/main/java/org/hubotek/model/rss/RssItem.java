@@ -2,7 +2,11 @@ package org.hubotek.model.rss;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hubotek.model.lob.RssItemDescription;
 
 @SuppressWarnings("serial")
 @Entity
@@ -20,8 +24,9 @@ public class RssItem extends RssBase
 	private String category;
 	@Column(name="pub_date" , length=55 , insertable=true, updatable=false)
 	private String pubDate;
-	@Column(name="description" , length=2000 , insertable=true, updatable=false)
-	private String description;
+	
+	@OneToOne(fetch=FetchType.LAZY)
+	private RssItemDescription description;
 	
 	public RssItem(){}
 	
@@ -33,9 +38,20 @@ public class RssItem extends RssBase
 		this.guid = guid;
 		this.category = category;
 		this.pubDate = pubDate;
-		this.description = description;
+		this.description = new RssItemDescription(description);
 	}
 
+	
+	public RssItem(String title, String link, String guid, String category, String pubDate, RssItemDescription description) {
+		super();
+		this.title = title;
+		this.link = link;
+		this.guid = guid;
+		this.category = category;
+		this.pubDate = pubDate;
+		this.description = description;
+	}
+	
 	public String getTitle() {
 		return title;
 	}
@@ -76,11 +92,11 @@ public class RssItem extends RssBase
 		this.pubDate = pubDate;
 	}
 
-	public String getDescription() {
+	public RssItemDescription getDescription() {
 		return description;
 	}
 
-	public void setDescription(String description) {
+	public void setDescription(RssItemDescription description) {
 		this.description = description;
 	}
 	

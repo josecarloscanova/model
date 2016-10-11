@@ -1,5 +1,6 @@
 package org.hubotek.persistence.test;
 
+import java.io.File;
 import java.util.List;
 
 import javax.persistence.metamodel.EntityType;
@@ -30,6 +31,7 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nanotek.Base;
@@ -39,6 +41,10 @@ public class CseBaseTest extends BasePersistenceTestClass {
 	
 	@Deployment
 	public static JavaArchive createDeployment() {
+		
+		 File[] files = Maven.resolver().loadPomFromFile("pom.xml")
+		            .importRuntimeDependencies().resolve().withTransitivity().asFile();
+		 
 		return ShrinkWrap.create(JavaArchive.class)
 				.addPackage(FeedUrl.class.getPackage())
 				.addPackage(AtomDocumentContent.class.getPackage())

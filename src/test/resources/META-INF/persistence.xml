@@ -17,6 +17,7 @@
 		<class>org.hubotek.model.lob.LobBase</class>
 		<class>org.hubotek.model.lob.LobResultItem</class>
 		<class>org.hubotek.model.lob.AtomDocumentContent</class>
+		<class>org.hubotek.model.lob.RssItemDescription</class>
 		<class>org.hubotek.model.atom.AtomBase</class>
 		<class>org.hubotek.model.atom.AtomBody</class>
 		<class>org.hubotek.model.atom.AtomDocument</class>
@@ -29,8 +30,6 @@
 		<class>org.hubotek.model.rss.RssItem</class>
 		<class>org.hubotek.model.url.BaseUrl</class>
 		<class>org.hubotek.model.url.NamedUrl</class>
-		<class>org.hubotek.model.lob.LobBase</class>
-		<class>org.hubotek.model.lob.LobResultItem</class>
 		<class>org.hubotek.model.search.ResultBase</class>
 		<class>org.hubotek.model.search.GoogleSearchResult</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
