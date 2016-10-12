@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hubotek.model.lob.LobResultItem;
+import org.hubotek.model.lob.GoogleResultItem;
 
 @Entity
 @Table(name="google_search_result")
@@ -12,16 +12,16 @@ import org.hubotek.model.lob.LobResultItem;
 public class GoogleSearchResult extends ResultBase{
 
 	@OneToOne
-	protected LobResultItem lobResultItem;
+	protected GoogleResultItem lobResultItem;
 	
 	public GoogleSearchResult(){}
 
-	public LobResultItem getLobResultItem() {
+	public GoogleResultItem getLobResultItem() {
 		return lobResultItem;
 	}
 
-	public void setLobResultItem(LobResultItem lobResultItem) {
+	public void setLobResultItem(GoogleResultItem lobResultItem) {
 		this.lobResultItem = lobResultItem;
 	}
-	
+
 }

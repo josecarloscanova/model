@@ -29,7 +29,7 @@ public class DOMElementExtratorUtil<T extends ElementEnum<String>> {
 		NodeList nodeList = document.getElementsByTagName(elementEnum.valueOf());
 		Node node = nodeList.item(0);
 		if (node !=null)
-			value = node.getTextContent();
+			value = node.getTextContent().trim();
 		return value;
 	}
 	

@@ -18,6 +18,8 @@ public class AtomDocumentContent extends LobBase{
 	protected String content;
 
 	
+	public AtomDocumentContent(){}
+	
 	public AtomDocumentContent(String content) {
 		super();
 		this.content = content;

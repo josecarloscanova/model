@@ -7,25 +7,22 @@ import javax.persistence.FetchType;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="lob_result_item")
 @SuppressWarnings("serial")
-public class LobResultItem extends LobBase{
+@Entity
+@Table(name="google_query")
+public class GoogleQuery extends LobBase{
 
-	public LobResultItem(){
-		super();
-	}
 	
 	@Lob @Basic(fetch=FetchType.LAZY)
-	@Column(name="result")
-	protected String result;
+	@Column(name="description")
+	protected String description;
 
-	public String getResult() {
-		return result;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setResult(String result) {
-		this.result = result;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }

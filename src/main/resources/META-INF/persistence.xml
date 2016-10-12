@@ -14,6 +14,15 @@
 		<class>org.hubotek.model.google.news.NewsTopic</class>
 		<class>org.hubotek.model.project.api.ApiKey</class>
 		<class>org.hubotek.model.project.api.GoogleApiKey</class>
+		<class>org.hubotek.model.lob.LobBase</class>
+		<class>org.hubotek.model.lob.GoogleResultItem</class>
+		<class>org.hubotek.model.lob.AtomDocumentContent</class>
+		<class>org.hubotek.model.lob.RssItemDescription</class>
+		<class>org.hubotek.model.atom.AtomBase</class>
+		<class>org.hubotek.model.atom.AtomBody</class>
+		<class>org.hubotek.model.atom.AtomDocument</class>
+		<class>org.hubotek.model.atom.AtomEntry</class>
+		<class>org.hubotek.model.atom.Author</class>
 		<class>org.hubotek.model.rss.RssBase</class>
 		<class>org.hubotek.model.rss.RssBody</class>
 		<class>org.hubotek.model.rss.RssDocument</class>
@@ -21,6 +30,8 @@
 		<class>org.hubotek.model.rss.RssItem</class>
 		<class>org.hubotek.model.url.BaseUrl</class>
 		<class>org.hubotek.model.url.NamedUrl</class>
+		<class>org.hubotek.model.search.ResultBase</class>
+		<class>org.hubotek.model.search.GoogleSearchResult</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />

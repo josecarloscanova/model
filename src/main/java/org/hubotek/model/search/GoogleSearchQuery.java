@@ -1,8 +1,10 @@
 package org.hubotek.model.search;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hubotek.model.lob.GoogleQuery;
 
 
 /**
@@ -13,9 +15,19 @@ import javax.persistence.Table;
 @SuppressWarnings("serial")
 @Entity
 @Table(name="google_search")
-public class GoogleSearchQuery extends QueryBase{
+public class GoogleSearchQuery extends QueryBase {
 
-	@Column(name="query" , length=2000 , insertable=true , updatable=false , nullable=false)
-	private String query;
+	@OneToOne
+	protected GoogleQuery googleQuery;
+
+	public GoogleQuery getGoogleQuery() {
+		return googleQuery;
+	}
+
+	public void setGoogleQuery(GoogleQuery googleQuery) {
+		this.googleQuery = googleQuery;
+	} 
+	
+	
 	
 }

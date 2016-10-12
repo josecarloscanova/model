@@ -18,7 +18,7 @@ public class RssItem extends RssBase
 	private String title; 
 	@Column(name="link" , length=1000 , insertable=true, updatable=false)
 	private String link; 
-	@Column(name="guid" , length=80 , insertable=true, updatable=false)
+	@Column(name="guid" , length=255 , insertable=true, updatable=false)
 	private String guid; 
 	@Column(name="category" , length=255 , insertable=true, updatable=false)
 	private String category;
