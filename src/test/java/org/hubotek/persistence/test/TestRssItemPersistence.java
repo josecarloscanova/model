@@ -15,10 +15,8 @@ import org.hubotek.model.lob.AtomDocumentContent;
 import org.hubotek.model.lob.GoogleResultItem;
 import org.hubotek.model.lob.RssItemDescription;
 import org.hubotek.model.project.api.GoogleApiKey;
-import org.hubotek.model.rss.RssBody;
 import org.hubotek.model.rss.RssDocument;
 import org.hubotek.model.rss.RssDocumentBuilder;
-import org.hubotek.model.rss.RssImage;
 import org.hubotek.model.rss.RssItem;
 import org.hubotek.model.search.GoogleSearchResult;
 import org.hubotek.model.url.NamedUrl;
@@ -75,13 +73,11 @@ public class TestRssItemPersistence extends BasePersistenceTestClass{
 				.addAsResource("xml/google_news_feed1.xml" , "google_news_feed.xml" );
 	}
 
-
 	@Test
 	public void shoud_parse_rss_file() throws Exception
 	{ 
 		utx.begin();  
 		entityManager.joinTransaction();  
-
 		InputStream is =  new FileInputStream(new File("C:/Java/git_repo/model/src/test/resources/xml/google_news_feed1.xml"));
 		DomParser parser = new DomParser();
 		Document document = parser.parseInput(new InputSource(is));
