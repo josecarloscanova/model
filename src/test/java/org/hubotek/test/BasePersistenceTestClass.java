@@ -13,7 +13,7 @@ public class BasePersistenceTestClass extends BaseTestClass{
     protected EntityManager entityManager;
     
     @Inject
-    private UserTransaction utx;
+    protected UserTransaction utx;
     
     protected void beginTransaction() throws Exception
 	{ 
