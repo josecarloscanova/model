@@ -22,10 +22,10 @@ public class TestRssItemPersistence extends ArquillianBaseModelConfigurator{
 		beginTransaction();
 		RssDocument rssDocument = new RssDocumentBuilder().withDocument(generateDocumentFromSoource(fileLocation)).build();
 		assertNotNull(rssDocument);
-		persistBase(rssDocument.getRssBody());
+		/*persistBase(rssDocument.getRssBody());
 		persistBase(rssDocument.getRssImage());
-		rssDocument.getRssItems().stream().forEach(i -> persistItem(i));
-		entityManager.persist(rssDocument);
+		rssDocument.getRssItems().stream().forEach(i -> persistItem(i));*/
+		persistBase(rssDocument);
 		commitTransaction(); 
 	}
 

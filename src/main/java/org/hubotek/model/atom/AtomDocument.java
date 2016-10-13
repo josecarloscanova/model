@@ -2,6 +2,7 @@ package org.hubotek.model.atom;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -14,10 +15,10 @@ import org.hubotek.model.HubDocument;
 @SuppressWarnings("serial")
 public class AtomDocument extends AtomBase implements HubDocument{
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private AtomBody body;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	private List<AtomEntry> entries;
 	
 	public AtomDocument(){}

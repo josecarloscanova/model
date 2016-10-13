@@ -3,7 +3,9 @@ package org.hubotek.model.rss;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -15,11 +17,13 @@ import org.hubotek.model.HubDocument;
 @Table(name="rss_document")
 public class RssDocument extends RssBase implements HubDocument{
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL , fetch=FetchType.EAGER)
 	private RssBody rssBody; 
-	@OneToOne
+	
+	@OneToOne(cascade=CascadeType.ALL , fetch=FetchType.EAGER)
 	private RssImage rssImage; 
-	@OneToMany
+	
+	@OneToMany(cascade=CascadeType.ALL , fetch=FetchType.LAZY)
 	private List<RssItem> rssItems; 
 	
 	public RssDocument(){

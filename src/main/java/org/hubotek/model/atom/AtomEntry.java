@@ -1,7 +1,9 @@
 package org.hubotek.model.atom;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,10 +21,10 @@ public class AtomEntry extends AtomBase{
 	@Column(name="title" , length=255 , insertable=true , updatable=false)
 	private String title;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL , fetch=FetchType.EAGER)
 	private FeedUrl link; 
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL , fetch=FetchType.LAZY)
 	private AtomDocumentContent content;
 	
 	@Column (name="updated" , length=30 , nullable=false)

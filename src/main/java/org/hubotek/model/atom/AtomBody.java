@@ -1,7 +1,9 @@
 package org.hubotek.model.atom;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -15,7 +17,7 @@ public class AtomBody extends AtomBase {
 	@Column(name="version" , length=10 , insertable=true , updatable=false , nullable=false)
 	private String version = "1.0";
 
-	@Column(name="atom_id" , length=50 , insertable=true , updatable=false , nullable=false)
+	@Column(name="atom_id" , length=255 , insertable=true , updatable=false , nullable=false)
 	private String atomId;
 	
 	@Column(name="title" , length=255 , insertable=true , updatable=false , nullable=false)
@@ -30,10 +32,10 @@ public class AtomBody extends AtomBase {
 	@Column(name="logo" , length=255)
 	private String logo;
 	
-	@Column(name="updated" , length=20)
+	@Column(name="updated" , length=30)
 	private String updated;
 	
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY , cascade=CascadeType.ALL)
 	private Author author;
 	
 	public AtomBody(){}

@@ -1,5 +1,6 @@
 package org.hubotek.model.rss;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,7 +26,7 @@ public class RssItem extends RssBase
 	@Column(name="pub_date" , length=55 , insertable=true, updatable=false)
 	private String pubDate;
 	
-	@OneToOne(fetch=FetchType.LAZY)
+	@OneToOne(fetch=FetchType.LAZY , cascade=CascadeType.ALL)
 	private RssItemDescription description;
 	
 	public RssItem(){}
