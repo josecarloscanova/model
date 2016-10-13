@@ -1,5 +1,9 @@
 package org.hubotek.test;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
 import org.hubotek.ElementEnum;
 import org.hubotek.model.HubDocument;
 import org.hubotek.model.atom.AtomBase;
@@ -16,11 +20,14 @@ import org.hubotek.model.search.GoogleSearchResult;
 import org.hubotek.model.url.NamedUrl;
 import org.hubotek.persistence.test.TestRssItemPersistence;
 import org.hubotek.util.DOMElementExtratorUtil;
+import org.hubotek.util.DomParser;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.nanotek.Base;
+import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
 
 public class ArquillianBaseModelConfigurator extends BasePersistenceTestClass{
 	@Deployment
@@ -52,5 +59,12 @@ public class ArquillianBaseModelConfigurator extends BasePersistenceTestClass{
 				.addAsResource("log4j.properties", "log4j.properties")
 				.addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
 				.addAsResource("xml/google_news_feed1.xml" , "google_news_feed.xml" );
+	}
+	
+	public Document generateDocumentFromSoource(String fileLocation) throws Exception
+	{ 
+		InputStream is =  new FileInputStream(new File(fileLocation));
+		DomParser parser = new DomParser();
+		return parser.parseInput(new InputSource(is));
 	}
 }
