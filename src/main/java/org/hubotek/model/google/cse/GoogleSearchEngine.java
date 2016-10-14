@@ -24,9 +24,12 @@ import org.hubotek.model.url.NamedUrl;
 @SuppressWarnings("serial")
 public class GoogleSearchEngine extends GoogleBase{
 
-	@Column(name="name" , length=50 , insertable=true , unique=true , updatable=false , nullable=false)
+	@Column(name="name" , length=255 , insertable=true , unique=true , updatable=false , nullable=false)
 	private String name;
 	
+	@Column(name="cx" , length=255 , insertable=true , unique=true , updatable=false , nullable=false)
+	private String cx;
+
 	@Column(name="description" , length=250 , insertable=true , updatable=true , nullable=true)
 	private String description;
 	
@@ -46,6 +49,14 @@ public class GoogleSearchEngine extends GoogleBase{
 		this.name = name;
 	}
 
+	public String getCx() {
+		return cx;
+	}
+
+	public void setCx(String cx) {
+		this.cx = cx;
+	}
+	
 	public String getDescription() {
 		return description;
 	}
@@ -70,4 +81,5 @@ public class GoogleSearchEngine extends GoogleBase{
 		this.sites = sites;
 	} 
 	
+
 }
