@@ -71,7 +71,7 @@ public class AtomDocumentBuilder extends DOMElementExtratorUtil<AtomDocumentElem
 						
 						String id = getChildNodeTextValueWithXPath(document , entryChildBaseExpression , AtomDocumentElementsEnum.ID);
 						String title = getChildNodeTextValueWithXPath(document , entryChildBaseExpression , AtomDocumentElementsEnum.TITLE);
-						String category = getChildNodeTextValueWithXPath(document , entryChildBaseExpression , AtomDocumentElementsEnum.CATEGORY);
+						String category = getChildNodeAttributeValueWithXPath(document , entryChildBaseExpression , AtomDocumentElementsEnum.CATEGORY ,  "term");
 						String content = getChildNodeTextValueWithXPath(document , entryChildBaseExpression , AtomDocumentElementsEnum.CONTENT);
 						String updated = getChildNodeTextValueWithXPath(document , entryChildBaseExpression , AtomDocumentElementsEnum.UPDATED);
 						

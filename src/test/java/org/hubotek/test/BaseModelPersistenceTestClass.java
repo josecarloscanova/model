@@ -7,7 +7,7 @@ import javax.transaction.UserTransaction;
 
 import org.nanotek.Base;
 
-public class BasePersistenceTestClass extends BaseTestClass{
+public class BaseModelPersistenceTestClass extends BaseTest{
 
 	@PersistenceContext
     protected EntityManager entityManager;

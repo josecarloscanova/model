@@ -29,7 +29,7 @@ import org.nanotek.Base;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 
-public class ArquillianBaseModelConfigurator extends BasePersistenceTestClass{
+public class BaseModelDeployer extends BaseModelPersistenceTestClass{
 	@Deployment
 	public static JavaArchive createDeployment() {
 
@@ -40,7 +40,7 @@ public class ArquillianBaseModelConfigurator extends BasePersistenceTestClass{
 				.addPackage(FeedUrl.class.getPackage())
 				.addPackage(AtomDocumentContent.class.getPackage())
 				.addPackage(AtomBase.class.getPackage())
-				.addPackage(BasePersistenceTestClass.class.getPackage())
+				.addPackage(BaseModelPersistenceTestClass.class.getPackage())
 				.addPackage(Base.class.getPackage())
 				.addPackage(GoogleApiKey.class.getPackage())
 				.addPackage(DOMElementExtratorUtil.class.getPackage())
@@ -50,7 +50,7 @@ public class ArquillianBaseModelConfigurator extends BasePersistenceTestClass{
 				.addPackage(RssItemDescription.class.getPackage())
 				.addPackage(NamedUrl.class.getPackage())
 				.addPackage(GoogleSearchEngine.class.getPackage())
-				.addClass(GoogleBase.class)
+				.addPackage(GoogleBase.class.getPackage())
 				.addPackage(NewsTopic.class.getPackage())
 				.addPackage(GoogleResultItem.class.getPackage())
 				.addPackage(GoogleSearchResult.class.getPackage())

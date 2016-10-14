@@ -4,10 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.hubotek.model.AccountStatusEnum;
-import org.nanotek.Base;
+import org.hubotek.model.google.GoogleBase;
 
 
 /**
@@ -16,14 +16,11 @@ import org.nanotek.Base;
  *
  */
 @Entity
+@Table(name="google_adsense_account")
 @SuppressWarnings("serial")
-public class GoogleAdsenseAccount implements Base<String>{
+public class GoogleAdsenseAccount extends GoogleBase{
 
-	//Editor ID.
-	@Id
-	private String id;
-
-	@Column(name="client_id" , length=20 , insertable=true , updatable=true)
+	@Column(name="client_id" , length=255 , insertable=true , updatable=true)
 	private String clientId; 
 	
 	@Enumerated(EnumType.STRING)
@@ -31,14 +28,6 @@ public class GoogleAdsenseAccount implements Base<String>{
 	
 	public GoogleAdsenseAccount(){}
 	
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	public String getClientId() {
 		return clientId;
 	}

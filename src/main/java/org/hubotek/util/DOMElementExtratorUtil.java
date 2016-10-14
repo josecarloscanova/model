@@ -61,6 +61,13 @@ public class DOMElementExtratorUtil<T extends ElementEnum<String>> {
 		return node;
 	}
 	
+	protected  String getChildNodeAttributeValueWithXPath(Document  document , String parentExpression , T elementEnum , String attribute) throws XPathExpressionException{
+		XPath xPath =  XPathFactory.newInstance().newXPath();
+		StringBuilder subExpression = new StringBuilder(parentExpression).append("/").append(elementEnum.valueOf()).append("[@").append(attribute).append("]");
+		Node idNode = (Node)xPath.compile(subExpression.toString()).evaluate(document, XPathConstants.NODE);
+		return getTextContent(idNode);
+	}
+	
 	protected  String getChildNodeTextValueWithXPath(Document  document , String parentExpression , T elementEnum) throws XPathExpressionException{
 		XPath xPath =  XPathFactory.newInstance().newXPath();
 		StringBuilder subExpression = new StringBuilder(parentExpression).append("/").append(elementEnum.valueOf());
