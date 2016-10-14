@@ -75,7 +75,6 @@ public class AtomDocumentBuilder extends DOMElementExtratorUtil<AtomDocumentElem
 						String content = getChildNodeTextValueWithXPath(document , entryChildBaseExpression , AtomDocumentElementsEnum.CONTENT);
 						String updated = getChildNodeTextValueWithXPath(document , entryChildBaseExpression , AtomDocumentElementsEnum.UPDATED);
 						
-						
 						StringBuilder linkExpression = new StringBuilder(entryChildBaseExpression).append("/").append(AtomDocumentElementsEnum.LINK.valueOf());
 						NodeList linkNodeList = getNodeListWithXPath(linkExpression.toString(),  document);
 						String link = "";

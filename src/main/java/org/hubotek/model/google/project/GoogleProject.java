@@ -22,5 +22,4 @@ public class GoogleProject extends Project {
 		this.projectId = projectId;
 	}
 	
-	
 }

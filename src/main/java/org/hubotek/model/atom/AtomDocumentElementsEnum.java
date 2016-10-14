@@ -34,7 +34,7 @@ import org.hubotek.ElementEnum;
  */
 public enum AtomDocumentElementsEnum implements ElementEnum<String>{
 	
-	ID ("ID"),
+	ID ("id"),
 	TITLE ("title"),
 	LINK ("link"), 
 	AUTHOR("author"),
