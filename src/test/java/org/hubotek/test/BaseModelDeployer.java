@@ -61,10 +61,4 @@ public class BaseModelDeployer extends BaseModelPersistenceTestClass{
 				.addAsResource("xml/google_news_feed1.xml" , "google_news_feed.xml" );
 	}
 	
-	public Document generateDocumentFromSoource(String fileLocation) throws Exception
-	{ 
-		InputStream is =  new FileInputStream(new File(fileLocation));
-		DomParser parser = new DomParser();
-		return parser.parseInput(new InputSource(is));
-	}
 }

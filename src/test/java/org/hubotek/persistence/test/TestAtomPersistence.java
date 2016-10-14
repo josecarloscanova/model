@@ -18,7 +18,7 @@ public class TestAtomPersistence extends BaseModelTransactionDelimiter{
 	@Test
 	public void should_parse_atom_file() throws Exception
 	{ 
-		AtomDocument atomDocument = new AtomDocumentBuilder().withDocument(generateDocumentFromSoource(fileLocation)).build();
+		AtomDocument atomDocument = new AtomDocumentBuilder().withDocument(generateDocumentFromSource(fileLocation)).build();
 		assertNotNull(atomDocument);
 		persistBase(atomDocument);
 	}

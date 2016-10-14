@@ -26,7 +26,7 @@ public class TestRssItemPersistence extends BaseModelTransactionDelimiter{
 	@Test
 	public void should_parse_rss_file() throws Exception
 	{ 
-		RssDocument rssDocument = new RssDocumentBuilder().withDocument(generateDocumentFromSoource(fileLocation)).build();
+		RssDocument rssDocument = new RssDocumentBuilder().withDocument(generateDocumentFromSource(fileLocation)).build();
 		assertNotNull(rssDocument);
 		document_item_size = rssDocument.getRssItems().size();
 		persistBase(rssDocument);
