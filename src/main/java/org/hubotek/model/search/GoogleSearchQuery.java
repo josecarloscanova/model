@@ -28,6 +28,4 @@ public class GoogleSearchQuery extends QueryBase {
 		this.googleQuery = googleQuery;
 	} 
 	
-	
-	
 }

@@ -12,16 +12,16 @@ import org.hubotek.model.lob.GoogleResultItem;
 public class GoogleSearchResult extends ResultBase{
 
 	@OneToOne
-	protected GoogleResultItem lobResultItem;
+	protected GoogleResultItem googleResultItem;
 	
 	public GoogleSearchResult(){}
 
-	public GoogleResultItem getLobResultItem() {
-		return lobResultItem;
+	public GoogleResultItem getGoogleResultItem() {
+		return googleResultItem;
 	}
 
-	public void setLobResultItem(GoogleResultItem lobResultItem) {
-		this.lobResultItem = lobResultItem;
+	public void setGoogleResultItem(GoogleResultItem googleResultItem) {
+		this.googleResultItem = googleResultItem;
 	}
 
 }

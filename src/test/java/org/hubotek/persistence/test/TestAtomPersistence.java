@@ -9,7 +9,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 
-
 @RunWith(Arquillian.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestAtomPersistence extends TransactionDelimitedBaseModel{
@@ -23,6 +22,5 @@ public class TestAtomPersistence extends TransactionDelimitedBaseModel{
 		assertNotNull(atomDocument);
 		persistBase(atomDocument);
 	}
-	
 	
 }
