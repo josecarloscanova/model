@@ -8,10 +8,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<jta-data-source>java:/hubotek</jta-data-source>
 		<class>org.hubotek.model.cse.CseBase</class>
-		<class>org.hubotek.model.cse.CseSite</class>
-		<class>org.hubotek.model.cse.GoogleSearchEngine</class>
 		<class>org.hubotek.model.feed.FeedUrl</class>
-		<class>org.hubotek.model.google.news.NewsTopic</class>
 		<class>org.hubotek.model.project.api.ApiKey</class>
 		<class>org.hubotek.model.project.api.GoogleApiKey</class>
 		<class>org.hubotek.model.lob.LobBase</class>
@@ -23,6 +20,10 @@
 		<class>org.hubotek.model.atom.AtomDocument</class>
 		<class>org.hubotek.model.atom.AtomEntry</class>
 		<class>org.hubotek.model.atom.Author</class>
+		<class>org.hubotek.model.google.GoogleBase</class>
+		<class>org.hubotek.model.google.cse.GoogleCseSite</class>
+		<class>org.hubotek.model.google.cse.GoogleSearchEngine</class>
+		<class>org.hubotek.model.google.news.NewsTopic</class>
 		<class>org.hubotek.model.rss.RssBase</class>
 		<class>org.hubotek.model.rss.RssBody</class>
 		<class>org.hubotek.model.rss.RssDocument</class>

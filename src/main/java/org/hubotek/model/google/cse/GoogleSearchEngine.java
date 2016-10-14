@@ -1,4 +1,4 @@
-package org.hubotek.model.cse;
+package org.hubotek.model.google.cse;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hubotek.model.google.GoogleBase;
 import org.hubotek.model.url.NamedUrl;
 
 /**
@@ -21,7 +22,7 @@ import org.hubotek.model.url.NamedUrl;
 @Entity
 @Table(name="gse_base")
 @SuppressWarnings("serial")
-public class GoogleSearchEngine extends CseBase{
+public class GoogleSearchEngine extends GoogleBase{
 
 	@Column(name="name" , length=50 , insertable=true , unique=true , updatable=false , nullable=false)
 	private String name;
@@ -33,7 +34,7 @@ public class GoogleSearchEngine extends CseBase{
 	private NamedUrl searchEngineUrl;
 	
 	@OneToMany(fetch=FetchType.LAZY)
-	private List<CseSite> sites;
+	private List<GoogleCseSite> sites;
 
 	public GoogleSearchEngine(){}
 	
@@ -61,11 +62,11 @@ public class GoogleSearchEngine extends CseBase{
 		this.searchEngineUrl = searchEngineUrl;
 	}
 
-	public List<CseSite> getSites() {
+	public List<GoogleCseSite> getSites() {
 		return sites;
 	}
 
-	public void setSites(List<CseSite> sites) {
+	public void setSites(List<GoogleCseSite> sites) {
 		this.sites = sites;
 	} 
 	

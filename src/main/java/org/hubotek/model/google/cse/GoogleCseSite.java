@@ -1,33 +1,28 @@
-package org.hubotek.model.cse;
+package org.hubotek.model.google.cse;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.nanotek.Base;
+import org.hubotek.model.google.GoogleBase;
 
+/**
+ * Used to store a CSE Site. 
+ * 
+ * Need a BiDirectional RelationShip with other entities.
+ * @author JoseCanova
+ *
+ */
 @SuppressWarnings("serial")
 @Entity
-@Table(name="cse_site")
-public class CseSite implements Base<Long>{
+@Table(name="google_cse_site")
+public class GoogleCseSite extends GoogleBase{
 
-	@Id
-	private Long id; 
-	
 	@Column(length=30,insertable=true,updatable=false)
 	private String location;
 
-	public CseSite(){}
+	public GoogleCseSite(){}
 	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getLocation() {
 		return location;
 	}

@@ -4,6 +4,7 @@ import static org.junit.Assert.assertNotEquals;
 
 import java.util.List;
 
+import org.hubotek.model.lob.RssItemDescription;
 import org.hubotek.model.rss.RssDocument;
 import org.hubotek.model.rss.RssDocumentBuilder;
 import org.hubotek.model.rss.RssItem;
@@ -45,6 +46,12 @@ public class TestRssItemPersistence extends TransactionDelimitedBaseModel{
 		assertNotNull(items); 
 		assertNotEquals(0, items.size());
 		assertEquals(document_item_size, items.size());
+		items.stream().forEach(i -> verifyRssDescription(i));;
+	}
+
+	private void verifyRssDescription(RssItem item) {
+		RssItemDescription itemDescription = item.getDescription();
+		assertNotNull(itemDescription);
 	}
 
 	private List<RssDocument> retrieveRssRecords() {
