@@ -1,7 +1,8 @@
 package org.hubotek;
 
+@FunctionalInterface
 public interface Builder<T> {
 
-	public T build();
+	T build();
 	
 }
