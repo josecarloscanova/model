@@ -1,4 +1,4 @@
-package org.hubotek.model.atom;
+package org.hubotek.model.document;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,19 +7,17 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 
-import org.hubotek.model.document.DocumentBase;
 import org.nanotek.LongBase;
 
 @SuppressWarnings("serial")
 @MappedSuperclass
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-public class AtomBase implements LongBase
-{
+public abstract class DocumentEntry implements LongBase{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
-
+	protected Long id;
+	
 	public Long getId() {
 		return id;
 	}
@@ -27,5 +25,5 @@ public class AtomBase implements LongBase
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 }

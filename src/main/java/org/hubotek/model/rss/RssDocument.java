@@ -11,11 +11,14 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hubotek.model.HubDocument;
+import org.hubotek.model.document.DocumentBase;
+import org.hubotek.model.document.LegacyDocument;
+import org.hubotek.model.document.LegacyDocumentType;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name="rss_document")
-public class RssDocument extends RssBase implements HubDocument{
+public class RssDocument extends LegacyDocument {
 
 	@OneToOne(cascade=CascadeType.ALL , fetch=FetchType.EAGER)
 	private RssBody rssBody; 
@@ -31,7 +34,8 @@ public class RssDocument extends RssBase implements HubDocument{
 	}
 	
 	private void prepare() {
-		rssItems = new ArrayList<RssItem>();		
+		rssItems = new ArrayList<RssItem>();	
+		this.legacyDocumentyType = LegacyDocumentType.RSS;
 	}
 
 	public RssDocument(RssBody body,RssImage image,List<RssItem>items)

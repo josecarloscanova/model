@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 
 @RunWith(Arquillian.class)
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestAtomPersistence extends BaseModelTransactionDelimiter{
 
 	private static final String fileLocation = "C:/Java/git_repo/model/src/test/resources/xml/news_atom.xml";

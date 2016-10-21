@@ -1,18 +1,16 @@
 package org.hubotek.test;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-
 import org.hubotek.ElementEnum;
 import org.hubotek.model.HubDocument;
 import org.hubotek.model.atom.AtomBase;
+import org.hubotek.model.document.DocumentBase;
 import org.hubotek.model.feed.FeedUrl;
 import org.hubotek.model.google.GoogleBase;
 import org.hubotek.model.google.cse.GoogleSearchEngine;
 import org.hubotek.model.google.news.NewsTopic;
 import org.hubotek.model.lob.AtomDocumentContent;
 import org.hubotek.model.lob.GoogleResultItem;
+import org.hubotek.model.lob.HubotekDocumentContent;
 import org.hubotek.model.lob.RssItemDescription;
 import org.hubotek.model.project.api.GoogleApiKey;
 import org.hubotek.model.rss.RssDocument;
@@ -20,16 +18,15 @@ import org.hubotek.model.search.GoogleSearchResult;
 import org.hubotek.model.url.NamedUrl;
 import org.hubotek.persistence.test.TestRssItemPersistence;
 import org.hubotek.util.DOMElementExtratorUtil;
-import org.hubotek.util.DomParser;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.nanotek.Base;
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
 
-public class BaseModelDeployer extends BaseModelPersistenceTestClass{
+public abstract class BaseModelDeployer extends BaseModelPersistenceTestClass{
+	
+	
 	@Deployment
 	public static JavaArchive createDeployment() {
 
@@ -54,8 +51,10 @@ public class BaseModelDeployer extends BaseModelPersistenceTestClass{
 				.addPackage(NewsTopic.class.getPackage())
 				.addPackage(GoogleResultItem.class.getPackage())
 				.addPackage(GoogleSearchResult.class.getPackage())
+				.addPackage(DocumentBase.class.getPackage())
 				.addPackage(TestRssItemPersistence.class.getPackage())
 				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
+				.addPackage(HubotekDocumentContent.class.getPackage())
 				.addAsResource("log4j.properties", "log4j.properties")
 				.addAsResource("META-INF/persistence.xml", "META-INF/persistence.xml")
 				.addAsResource("xml/google_news_feed1.xml" , "google_news_feed.xml" );
