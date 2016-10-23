@@ -4,10 +4,8 @@ import org.hubotek.model.atom.AtomDocument;
 import org.hubotek.model.atom.AtomDocumentBuilder;
 import org.hubotek.test.BaseModelTransactionDelimiter;
 import org.jboss.arquillian.junit.Arquillian;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.MethodSorters;
 
 @RunWith(Arquillian.class)
 //@FixMethodOrder(MethodSorters.NAME_ASCENDING)

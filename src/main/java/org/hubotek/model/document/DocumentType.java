@@ -5,6 +5,8 @@ public enum DocumentType {
 	TYPE_UNSPECIFIED,
 	PLAIN_TEXT,
 	HTML,
-	XML;
+	XML,
+	ATOM,
+	RSS;
 	
 }
