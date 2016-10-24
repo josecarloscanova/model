@@ -21,7 +21,8 @@
 		<class>org.hubotek.model.atom.AtomDocument</class>
 		<class>org.hubotek.model.atom.AtomEntry</class>
 		<class>org.hubotek.model.atom.Author</class>
-		<class>org.hubotek.model.document.DocumentBase</class>
+		<!-- <class>org.hubotek.model.document.DocumentBase</class> -->
+		<class>org.hubotek.model.document.LegacyDocument</class>
 		<class>org.hubotek.model.document.DocumentEntry</class>
 		<class>org.hubotek.model.document.HubotekDocument</class>
 		<class>org.hubotek.model.document.HubotekDocumentEntry</class>
