@@ -26,7 +26,6 @@ public class TestHubotekDocumentPersistence extends BaseModelTransactionDelimite
 	@Inject
 	BasePersistentConsumer basePersistentConsumer;
 	
-	
 	@Test
 	public void should_persist_hubotek_document()
 	{ 
