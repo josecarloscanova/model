@@ -4,10 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="legacy_document")
+@Inheritance(strategy=InheritanceType.JOINED)
 @SuppressWarnings("serial")
 public abstract class LegacyDocument extends DocumentBase {
 

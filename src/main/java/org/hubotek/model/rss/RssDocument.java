@@ -10,8 +10,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hubotek.model.HubDocument;
-import org.hubotek.model.document.DocumentBase;
 import org.hubotek.model.document.LegacyDocument;
 import org.hubotek.model.document.LegacyDocumentType;
 

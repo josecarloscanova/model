@@ -1,16 +1,16 @@
 package org.hubotek;
 
 import java.util.function.Supplier;
-
+import org.w3c.dom.Document;
 import org.hubotek.model.atom.AtomDocument;
 import org.hubotek.model.atom.AtomDocumentBuilder;
-import org.w3c.dom.Document;
 
-public class AtomSupplier  implements Supplier<AtomDocument> //extends HttpRequestAccessor<AtomDocument>
+
+public class AtomDocumentSupplier  implements Supplier<AtomDocument> //extends HttpRequestAccessor<AtomDocument>
 {
 	private Document sourceDocument;
 	
-	public AtomSupplier(Document adomDocument )
+	public AtomDocumentSupplier(Document adomDocument )
 	{ 
 		this.sourceDocument = adomDocument;
 	}

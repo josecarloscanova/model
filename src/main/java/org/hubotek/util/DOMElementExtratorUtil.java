@@ -1,5 +1,7 @@
 package org.hubotek.util;
 
+import java.util.function.Supplier;
+
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
@@ -13,7 +15,7 @@ import org.w3c.dom.NodeList;
 
 public class DOMElementExtratorUtil<T extends ElementEnum<String>> {
 
-	private XPathFactory xpathFactory;
+	private Supplier<XPath> xpathFactory;
 	
 	
 	public DOMElementExtratorUtil(){
@@ -21,7 +23,7 @@ public class DOMElementExtratorUtil<T extends ElementEnum<String>> {
 	}
 	
 	private void prepare() {
-		xpathFactory = XPathFactory.newInstance();
+		xpathFactory = () -> new XPathSupplier().get();
 	}
 
 	protected String getFromDocument(Document document , T elementEnum) {
@@ -37,8 +39,7 @@ public class DOMElementExtratorUtil<T extends ElementEnum<String>> {
 	{ 
 		NodeList nodeList = null;
 		try {
-		XPath xPath = createXPathFromFactory();
-		nodeList  = (NodeList) xPath.compile(nodeExpression).evaluate(document, XPathConstants.NODESET);
+		nodeList  = (NodeList) xpathFactory.get().compile(nodeExpression).evaluate(document, XPathConstants.NODESET);
 		} catch (XPathExpressionException e) {
 			throw new HubotekException(e);
 		}
@@ -49,37 +50,32 @@ public class DOMElementExtratorUtil<T extends ElementEnum<String>> {
 		return (node.hasAttributes() == true) ? node.getAttributes().getNamedItem(attr).getTextContent():"";
 	}
 	
+	protected  String getChildNodeAttributeValueWithXPath(Document  document , String parentExpression , T elementEnum , String attribute) throws XPathExpressionException{
+		Node node = getNodeWithXPath(buildXPathExpression(parentExpression, elementEnum) , document);
+		return getTextAttribute(node , attribute);
+	}
+	
+	private String buildXPathExpression(String parentExpression , T elementEnum) {
+		return new StringBuilder(parentExpression).append("/").append(elementEnum.valueOf()).toString();
+	}
+
+	protected  String getChildNodeTextValueWithXPath(Document  document , String parentExpression , T elementEnum) throws XPathExpressionException{
+		Node node = getNodeWithXPath(buildXPathExpression(parentExpression, elementEnum) , document);
+		return getTextContent(node);
+	}
+	
 	protected Node getNodeWithXPath(String nodeExpression , Document document)
 	{ 
 		Node node = null;
 		try {
-				XPath xPath = createXPathFromFactory();
-				node = (Node) xPath.compile(nodeExpression).evaluate(document, XPathConstants.NODE);
+				node = (Node) xpathFactory.get().compile(nodeExpression).evaluate(document, XPathConstants.NODE);
 		} catch (XPathExpressionException e) {
 			throw new HubotekException(e);
 		}
 		return node;
 	}
-	
-	protected  String getChildNodeAttributeValueWithXPath(Document  document , String parentExpression , T elementEnum , String attribute) throws XPathExpressionException{
-		XPath xPath =  XPathFactory.newInstance().newXPath();
-		StringBuilder subExpression = new StringBuilder(parentExpression).append("/").append(elementEnum.valueOf());
-		Node node = (Node)xPath.compile(subExpression.toString()).evaluate(document, XPathConstants.NODE);
-		return getTextAttribute(node , attribute);
-	}
-	
-	protected  String getChildNodeTextValueWithXPath(Document  document , String parentExpression , T elementEnum) throws XPathExpressionException{
-		XPath xPath =  XPathFactory.newInstance().newXPath();
-		StringBuilder subExpression = new StringBuilder(parentExpression).append("/").append(elementEnum.valueOf());
-		Node node = (Node)xPath.compile(subExpression.toString()).evaluate(document, XPathConstants.NODE);
-		return getTextContent(node);
-	}
-	
 	protected String getTextContent(Node node) {
 		return (node!=null && node.hasChildNodes()) ? node.getTextContent() : "";
 	}
 	
-	private XPath createXPathFromFactory() {
-		return  xpathFactory.newXPath();
-	}
 }

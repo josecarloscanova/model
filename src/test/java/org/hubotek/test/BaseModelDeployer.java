@@ -4,6 +4,7 @@ import org.hubotek.ElementEnum;
 import org.hubotek.model.HubDocument;
 import org.hubotek.model.atom.AtomBase;
 import org.hubotek.model.document.DocumentBase;
+import org.hubotek.model.document.transformer.HubotekAtomDocumentTransformer;
 import org.hubotek.model.feed.FeedUrl;
 import org.hubotek.model.google.GoogleBase;
 import org.hubotek.model.google.cse.GoogleSearchEngine;
@@ -24,7 +25,7 @@ import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.nanotek.Base;
 
-public abstract class BaseModelDeployer extends BaseModelPersistenceTestClass{
+public abstract class BaseModelDeployer extends BaseTest{
 	
 	
 	@Deployment
@@ -34,6 +35,7 @@ public abstract class BaseModelDeployer extends BaseModelPersistenceTestClass{
 				.importRuntimeDependencies().resolve().withTransitivity().asFile();*/
 
 		return ShrinkWrap.create(JavaArchive.class)
+				.addPackage(HubotekAtomDocumentTransformer.class.getPackage())
 				.addPackage(FeedUrl.class.getPackage())
 				.addPackage(AtomDocumentContent.class.getPackage())
 				.addPackage(AtomBase.class.getPackage())

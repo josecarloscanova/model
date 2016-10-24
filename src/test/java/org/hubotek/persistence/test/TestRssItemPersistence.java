@@ -40,11 +40,11 @@ public class TestRssItemPersistence extends BaseModelTransactionDelimiter{
 		List<RssItem> items = rssDocument.getRssItems();
 		assertNotNull(items); 
 		assertNotEquals(0, items.size());
-		items.stream().forEach(i -> verifyRssDescription(i));;
+		items.stream().forEach(i -> verifyRssDescription(i));
 	}
 
 	private void verifyRssDescription(RssItem item) {
-		RssItemDescription itemDescription = item.getDescription();
+		RssItemDescription itemDescription = item.getRssItemDescription();
 		assertNotNull(itemDescription);
 	}
 

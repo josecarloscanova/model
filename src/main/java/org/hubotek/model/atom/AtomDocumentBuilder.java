@@ -20,10 +20,16 @@ import org.w3c.dom.NodeList;
 public class AtomDocumentBuilder extends DOMElementExtratorUtil<AtomDocumentElementsEnum> implements Builder<AtomDocument>{
 
 	private AtomDocument atomDocument; 
-
+	//TODO:
 	final String nameExpression = "/feed/author/name";
 	final String emailExpression = "/feed/author/email";
 	final String entryParentExpression = "/feed/entry";
+	final String idXPath = "/feed/id"; 
+	final String titleXPath = "/feed/title";
+	final String linkXPath = "/feed/link";
+	final String rightsXPath = "/feed/rights";
+	final String updatedXPath = "/feed/updated";
+	final String logoXPath = "/feed/logo";
 	
 	public AtomDocumentBuilder(){ 
 		prepare();
@@ -93,14 +99,6 @@ public class AtomDocumentBuilder extends DOMElementExtratorUtil<AtomDocumentElem
 	@SuppressWarnings("unused")
 	private void withBody(Document document) 
 	{ 
-		String idXPath = "/feed/id"; 
-		String titleXPath = "/feed/title";
-		//TODO:
-		String linkXPath = "/feed/link";
-		String rightsXPath = "/feed/rights";
-		String updatedXPath = "/feed/updated";
-		String logoXPath = "/feed/logo";
-		
 		String id = getTextContent(getNodeWithXPath(idXPath, document));
 		String title = getTextContent(getNodeWithXPath(titleXPath, document));
 		String rights = getTextContent(getNodeWithXPath(rightsXPath, document));

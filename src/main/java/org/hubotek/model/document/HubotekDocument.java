@@ -26,7 +26,7 @@ public class HubotekDocument extends DocumentBase{
 	private String language; 
 	
 	@OneToOne(fetch=FetchType.LAZY , cascade=CascadeType.ALL)
-	private DocumentBase origin;
+	private LegacyDocument origin;
 	
 	@OneToMany(fetch=FetchType.LAZY , cascade=CascadeType.ALL)
 	private List<HubotekDocumentEntry> documentEntries;
@@ -35,8 +35,6 @@ public class HubotekDocument extends DocumentBase{
 		prepare();
 	}
 	
-	
-
 	private void prepare() {
 		documentEntries = new ArrayList<HubotekDocumentEntry>();
 	}
@@ -57,11 +55,11 @@ public class HubotekDocument extends DocumentBase{
 		this.language = language;
 	}
 
-	public DocumentBase getOrigin() {
+	public LegacyDocument getOrigin() {
 		return origin;
 	}
 
-	public void setOrigin(DocumentBase origin) {
+	public void setOrigin(LegacyDocument origin) {
 		this.origin = origin;
 	}
 

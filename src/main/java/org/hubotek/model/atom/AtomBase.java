@@ -7,7 +7,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 
-import org.hubotek.model.document.DocumentBase;
 import org.nanotek.LongBase;
 
 @SuppressWarnings("serial")
@@ -18,7 +17,7 @@ public class AtomBase implements LongBase
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
+	protected Long id;
 
 	public Long getId() {
 		return id;

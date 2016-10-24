@@ -7,12 +7,12 @@ import org.hubotek.model.rss.RssDocumentBuilder;
 import org.w3c.dom.Document;
 
 //TODO: Change the name of the class.
-public class RssSupplier implements Supplier<RssDocument> //extends HttpRequestAccessor<RssDocument>
+public class RssDocumentSupplier implements Supplier<RssDocument> //extends HttpRequestAccessor<RssDocument>
 {
 	
 	private Document sourceDocument;
 
-	public RssSupplier (Document document)
+	public RssDocumentSupplier (Document document)
 	{ 
 		this.sourceDocument = document;
 	}

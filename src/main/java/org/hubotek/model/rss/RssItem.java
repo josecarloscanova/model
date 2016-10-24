@@ -27,7 +27,7 @@ public class RssItem extends RssBase
 	private String pubDate;
 	
 	@OneToOne(fetch=FetchType.LAZY , cascade=CascadeType.ALL)
-	private RssItemDescription description;
+	private RssItemDescription rssItemDescription;
 	
 	public RssItem(){}
 	
@@ -39,10 +39,20 @@ public class RssItem extends RssBase
 		this.guid = guid;
 		this.category = category;
 		this.pubDate = pubDate;
-		this.description = new RssItemDescription(description);
+		this.rssItemDescription = new RssItemDescription(description);
 	}
 
 	
+	public RssItemDescription getRssItemDescription() {
+		return rssItemDescription;
+	}
+
+
+	public void setRssItemDescription(RssItemDescription rssItemDescription) {
+		this.rssItemDescription = rssItemDescription;
+	}
+
+
 	public RssItem(String title, String link, String guid, String category, String pubDate, RssItemDescription description) {
 		super();
 		this.title = title;
@@ -50,7 +60,7 @@ public class RssItem extends RssBase
 		this.guid = guid;
 		this.category = category;
 		this.pubDate = pubDate;
-		this.description = description;
+		this.rssItemDescription = description;
 	}
 	
 	public String getTitle() {
@@ -91,14 +101,6 @@ public class RssItem extends RssBase
 
 	public void setPubDate(String pubDate) {
 		this.pubDate = pubDate;
-	}
-
-	public RssItemDescription getDescription() {
-		return description;
-	}
-
-	public void setDescription(RssItemDescription description) {
-		this.description = description;
 	}
 	
 }

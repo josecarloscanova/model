@@ -2,6 +2,8 @@ package org.hubotek.model.document.transformer;
 
 import java.util.Date;
 
+import javax.inject.Named;
+
 import org.hubotek.model.document.DocumentType;
 import org.hubotek.model.document.HubotekDocument;
 import org.hubotek.model.document.HubotekDocumentEntry;
@@ -9,6 +11,7 @@ import org.hubotek.model.lob.HubotekDocumentContent;
 import org.hubotek.model.rss.RssDocument;
 import org.hubotek.model.rss.RssItem;
 
+@Named(value="hubotekRssDocumentTransformer")
 public class HubotekRssDocumentTransformer implements HubotekLegacyDocumentTransformer<RssDocument> {
 
 	
@@ -28,7 +31,7 @@ public class HubotekRssDocumentTransformer implements HubotekLegacyDocumentTrans
 	}
 
 	private HubotekDocumentEntry addNewEntryFromRssEntry(RssItem i) {
-		return new HubotekDocumentEntry(new HubotekDocumentContent(i.getDescription().getDescription()));
+		return new HubotekDocumentEntry(new HubotekDocumentContent(i.getRssItemDescription().getDescription()));
 	}
 	
 }
