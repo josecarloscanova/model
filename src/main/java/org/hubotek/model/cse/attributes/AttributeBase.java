@@ -17,7 +17,7 @@ import org.nanotek.Base;
 public class AttributeBase implements Base<Long> {
 
 	@Id
-	private Long id;
+	protected Long id;
 	
 	@Enumerated(EnumType.STRING)
 	protected AttributeTypeEnum attributeType;

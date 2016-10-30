@@ -7,6 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
+//TODO: Refactor 
 @SuppressWarnings("serial")
 @Entity
 @Table(name="google_query")

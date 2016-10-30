@@ -10,13 +10,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hubotek.model.HubDocument;
 import org.hubotek.model.document.LegacyDocument;
 import org.hubotek.model.document.LegacyDocumentType;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name="rss_document")
-public class RssDocument extends LegacyDocument {
+public class RssDocument extends LegacyDocument implements HubDocument{
 
 	@OneToOne(cascade=CascadeType.ALL , fetch=FetchType.EAGER)
 	private RssBody rssBody; 

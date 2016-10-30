@@ -13,10 +13,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hubotek.model.HubDocument;
+
 @SuppressWarnings("serial")
 @Entity
 @Table(name="hubotek_document")
-public class HubotekDocument extends DocumentBase{
+public class HubotekDocument extends DocumentBase implements HubDocument{
 
 	@Enumerated(EnumType.STRING)
 	@Column(name="document_type" , nullable=false)

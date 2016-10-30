@@ -6,7 +6,7 @@
 	<persistence-unit name="hubotek-orm"
 		transaction-type="JTA">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<jta-data-source>java:/hubotek</jta-data-source>
+		<jta-data-source>jdbc/hubotek</jta-data-source>
 		<class>org.hubotek.model.cse.CseBase</class>
 		<class>org.hubotek.model.feed.FeedUrl</class>
 		<class>org.hubotek.model.project.api.ApiKey</class>

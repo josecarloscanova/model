@@ -9,13 +9,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hubotek.model.HubDocument;
 import org.hubotek.model.document.LegacyDocument;
 import org.hubotek.model.document.LegacyDocumentType;
 
 @Entity
 @Table(name="atom_document")
 @SuppressWarnings("serial")
-public class AtomDocument extends LegacyDocument {
+public class AtomDocument extends LegacyDocument implements HubDocument{
 
 	@OneToOne(cascade=CascadeType.ALL)
 	private AtomBody body;

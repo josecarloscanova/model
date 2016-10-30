@@ -15,7 +15,7 @@ import org.nanotek.LongBase;
 
 @SuppressWarnings("serial")
 @MappedSuperclass
-public abstract class DocumentBase  implements LongBase , HubDocument{
+public abstract class DocumentBase  implements LongBase {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

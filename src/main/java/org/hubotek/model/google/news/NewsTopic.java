@@ -14,7 +14,6 @@ public class NewsTopic extends GoogleBase{
 	@Column(name="topic" , length=20)
 	private String topic;
 	
-	
 	public NewsTopic(){
 		super();
 	}
