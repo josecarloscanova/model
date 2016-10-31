@@ -6,7 +6,7 @@
 	<persistence-unit name="hubotek-orm"
 		transaction-type="JTA">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<jta-data-source>jdbc/hubotek</jta-data-source>
+		<jta-data-source>java:/hubotek</jta-data-source>
 		<class>org.hubotek.model.cse.CseBase</class>
 		<class>org.hubotek.model.feed.FeedUrl</class>
 		<class>org.hubotek.model.project.api.ApiKey</class>
@@ -44,7 +44,7 @@
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 		</properties>
 	</persistence-unit>
 </persistence>
