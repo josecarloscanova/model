@@ -20,10 +20,10 @@ public abstract class RssBase implements LongBase{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
+	protected Long id;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dateCreated;
+	protected Date dateCreated;
 	
 	public Long getId() {
 		return id;

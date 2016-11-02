@@ -10,7 +10,6 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hubotek.model.HubDocument;
 import org.nanotek.LongBase;
 
 @SuppressWarnings("serial")
