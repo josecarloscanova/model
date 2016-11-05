@@ -17,7 +17,7 @@ public interface Transferable {
 
 		DEST result = collectionFactory.get();
 		
-		sourceCollection.stream().forEach(p -> result.add(Optional.of(p).filter(t -> t.getId() !=null).get()));
+		sourceCollection.stream().forEach(p -> result.add(Optional.of(p).get()));
 		
 		return result;
 	}
