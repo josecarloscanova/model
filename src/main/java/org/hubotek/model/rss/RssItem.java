@@ -14,7 +14,6 @@ import org.hubotek.model.lob.RssItemDescription;
 @Table(name="rss_item")
 public class RssItem extends RssBase
 { 
-
 	@Column(name="title" , length=255 , insertable=true, updatable=false)
 	private String title; 
 	@Column(name="link" , length=1000 , insertable=true, updatable=false)

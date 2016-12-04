@@ -1,5 +1,6 @@
 package org.hubotek.model.rss.ext.purl;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -31,30 +32,41 @@ import org.hubotek.model.rss.ext.NameSpaceBase;
 @SuppressWarnings("serial")
 public class PurlBase extends NameSpaceBase{
 
+	@Column(name="relation")
 	private String relation;
 	
+	@Column(name="rights")
 	private String rights;
 	
+	@Column(name="format")
 	private String format; 
-	
+
+	@Column(name="date")
 	private String date; 
-	
+
+	@Column(name="type")
 	private String type; 
 	
+	@Column(name="creator")
 	private String creator; 
 	
+	@Column(name="publisher")
 	private String publisher; 
 	
+	@Column(name="subject")
 	private String subject; 
 	
+	@Column(name="language")
 	private String language; 
 	
+	@Column(name="identifier")
 	private String identifier;
 	
+	@Column(name="title")
 	private String title;
 	
+	@Column(name="source")
 	private String source;
-	
 	
 	
 	public PurlBase(){

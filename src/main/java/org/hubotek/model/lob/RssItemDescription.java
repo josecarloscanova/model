@@ -13,9 +13,12 @@ import javax.persistence.Table;
 public class RssItemDescription extends LobBase{
 
 	
-	@Lob @Basic(fetch=FetchType.LAZY)
+	@Lob @Basic(fetch=FetchType.EAGER)
 	@Column(name="description")
 	protected String description;
+	/*
+	@OneToOne(mappedBy="rssItemDescription")
+	protected RssItem rssItem;*/
 
 	public RssItemDescription(){}
 	

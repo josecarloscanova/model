@@ -19,10 +19,10 @@ import org.hubotek.model.document.LegacyDocumentType;
 @Table(name="rss_document")
 public class RssDocument extends LegacyDocument implements HubDocument{
 
-	@OneToOne(cascade=CascadeType.ALL , fetch=FetchType.EAGER)
+	@OneToOne(cascade=CascadeType.ALL , fetch=FetchType.LAZY)
 	private RssBody rssBody; 
 	
-	@OneToOne(cascade=CascadeType.ALL , fetch=FetchType.EAGER)
+	@OneToOne(cascade=CascadeType.ALL , fetch=FetchType.LAZY)
 	private RssImage rssImage; 
 	
 	@OneToMany(cascade=CascadeType.ALL , fetch=FetchType.LAZY)
