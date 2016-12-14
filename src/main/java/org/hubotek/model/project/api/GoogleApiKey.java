@@ -12,6 +12,8 @@ public class GoogleApiKey extends ApiKey {
 	@Column(name="key" , length=255 , insertable=true , updatable=true , nullable=false)
 	private String key;
 
+	
+	
 	public String getKey() {
 		return key;
 	}
