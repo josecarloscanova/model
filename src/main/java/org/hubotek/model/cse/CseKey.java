@@ -2,7 +2,6 @@ package org.hubotek.model.cse;
 
 import java.util.Date;
 
-import javax.ejb.Timeout;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;

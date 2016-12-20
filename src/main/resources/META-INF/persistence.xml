@@ -9,6 +9,8 @@
 		<jta-data-source>java:/hubotek</jta-data-source>
 		<class>org.hubotek.model.cse.CseBase</class>
 		<class>org.hubotek.model.cse.CseKey</class>
+		<class>org.hubotek.model.cse.CseEngine</class>
+		<class>org.hubotek.model.cse.CseBaseUrl</class>
 		<class>org.hubotek.model.feed.FeedUrl</class>
 		<class>org.hubotek.model.project.api.ApiKey</class>
 		<class>org.hubotek.model.project.api.GoogleApiKey</class>
