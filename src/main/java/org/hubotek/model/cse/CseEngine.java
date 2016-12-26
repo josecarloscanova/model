@@ -24,6 +24,13 @@ public class CseEngine  extends CseBase{
 	
 	public CseEngine(){}
 
+	public CseEngine(String identification, String description, Date dateCreated) {
+		super();
+		this.identification = identification;
+		this.description = description;
+		this.dateCreated = dateCreated;
+	}
+
 	public String getIdentification() {
 		return identification;
 	}
