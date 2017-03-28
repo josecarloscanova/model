@@ -2,6 +2,7 @@ package org.hubotek.model.rss;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 //This is not the best practice use a standard format to persist the content, 
 //but need to think that what is important is that the message remains cached and could be located and transformed to other format 
@@ -29,7 +30,7 @@ public class RssBody  extends RssBase
 	private String pubDate; 
 	@Column(name="last_build_date" , length=55 , insertable=true , updatable=false)
 	private String lastBuildDate; 
-
+	
 	public RssBody(){}
 	
 	
@@ -112,5 +113,5 @@ public class RssBody  extends RssBase
 	public void setLastBuildDate(String lastBuildDate) {
 		this.lastBuildDate = lastBuildDate;
 	}
-	
+
 }

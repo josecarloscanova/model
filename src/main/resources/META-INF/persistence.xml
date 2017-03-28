@@ -42,6 +42,8 @@
 		<class>org.hubotek.model.url.NamedUrl</class>
 		<class>org.hubotek.model.search.ResultBase</class>
 		<class>org.hubotek.model.search.GoogleSearchResult</class>
+		<class>org.hubotek.model.news.feed.FeedBase</class>
+		<class>org.hubotek.model.news.feed.FeedSource</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
