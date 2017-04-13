@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hubotek.model.HubDocument;
+import org.nanotek.common.domain.DocumentType;
 
 @SuppressWarnings("serial")
 @Entity

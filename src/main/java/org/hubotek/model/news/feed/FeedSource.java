@@ -8,8 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hubotek.model.document.DocumentType;
 import org.hubotek.model.url.NamedUrl;
+import org.nanotek.common.domain.DocumentType;
 
 
 @SuppressWarnings("serial")

@@ -4,12 +4,12 @@ import java.util.Date;
 
 import javax.inject.Named;
 
-import org.hubotek.model.document.DocumentType;
 import org.hubotek.model.document.HubotekDocument;
 import org.hubotek.model.document.HubotekDocumentEntry;
 import org.hubotek.model.lob.HubotekDocumentContent;
 import org.hubotek.model.rss.RssDocument;
 import org.hubotek.model.rss.RssItem;
+import org.nanotek.common.domain.DocumentType;
 
 @Named(value="hubotekRssDocumentTransformer")
 public class HubotekRssDocumentTransformer implements HubotekLegacyDocumentTransformer<RssDocument> {

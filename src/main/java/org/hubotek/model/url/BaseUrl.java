@@ -9,7 +9,7 @@ import javax.persistence.MappedSuperclass;
 import org.nanotek.LongBase;
 
 /**
- * Intend to store "url instances" or ined addresses. 
+ * Intend to store "url instances" or joined addresses. 
  * For administrative purposes.
  * 
  * @author JoseCanova

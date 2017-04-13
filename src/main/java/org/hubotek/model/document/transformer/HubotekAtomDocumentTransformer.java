@@ -6,10 +6,10 @@ import javax.inject.Named;
 
 import org.hubotek.model.atom.AtomDocument;
 import org.hubotek.model.atom.AtomEntry;
-import org.hubotek.model.document.DocumentType;
 import org.hubotek.model.document.HubotekDocument;
 import org.hubotek.model.document.HubotekDocumentEntry;
 import org.hubotek.model.lob.HubotekDocumentContent;
+import org.nanotek.common.domain.DocumentType;
 
 @Named(value="hubotekAtomDocumentTransformer")
 public class HubotekAtomDocumentTransformer implements HubotekLegacyDocumentTransformer<AtomDocument> {
